@@ -1,2 +1,3 @@
-
-    <h1>Selamat datang</h1>
+<main>
+    <h1>Dashboard</h1>
+</main>

@@ -2,10 +2,9 @@
 
 class Sekolah extends Controller{
 
-    public function index($nama='Qassie', $pekerjaan='Professional eater'){
-        $data['nama'] = $nama;
-        $data['pekerjaan'] = $pekerjaan;
+    public function index(){
         $data['judul'] = 'Data Sekolah';
+        $data['sekolah'] = $this->model('sekolah_model')->getAllSekolah();
         $this->view('templates/header', $data);
         $this->view('sekolah/index', $data);
         $this->view('templates/footer');

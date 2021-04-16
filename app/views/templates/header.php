@@ -12,7 +12,7 @@
             <ul>
                 <li><a href="<?= BASEURL; ?>">Dashboard</a></li>
                 <li><a href="<?= BASEURL; ?>/sekolah">Data Sekolah</a></li>
-                <li><a href="#">Data Kriteria</a></li>
+                <li><a href="<?= BASEURL; ?>/kriteria">Data Kriteria</a></li>
                 <li><a href="#">Prioritas Sekolah</a></li>
             </ul>
         </nav>

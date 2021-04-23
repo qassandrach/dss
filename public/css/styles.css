@@ -7,12 +7,12 @@ body {
     font-family: 'Spartan', sans-serif;
     padding: 0;
     margin: 0;
-    background-color: #113a5d;
-    color: white;
+    background-color: #d8e3e7;
+    color: #132c33;
 }
 
 h1, h2, h3 {
-    color: #ff7a8a;
+    color: #132c33;
 }
 
 main {
@@ -24,13 +24,13 @@ main {
 footer {
     padding: 15px;
     color: white;
-    background-color: #062743;
+    background-color: #126e82;
     text-align: center;
 }
 
 a {
     text-decoration: none;
-    color: #ff7a8a;
+    color: #132c33;
 }
 
 a:hover {
@@ -42,12 +42,12 @@ nav a {
     font-weight: 400;
     text-decoration: none;
     color: white;
-    
+    font-weight: bold;
 }
 
-nav a:hover, .active{
+nav a:hover, .active {
     font-weight: bold;
-    color: #ff7a8a;
+    color: #51c4d3;
 }
 
 .profile header {
@@ -73,14 +73,27 @@ nav a:hover, .active{
 }
 
 .card {
-    /* box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2); */
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
-
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
+    -webkit-box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
 }
 
-.volunteer p {
-    font-size: 20px;
+.card .section {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #0ead63;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
 .jumbotron {
@@ -91,8 +104,12 @@ nav a:hover, .active{
     color: white;
 }
 
+#sekolah {
+    text-align: center;
+}
+
 nav {
-    background-color: #062743;
+    background-color: #126e82;
     padding: 5px;
     text-align: center;
     position: sticky;
@@ -139,6 +156,50 @@ header {
     object-position: center;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+}
+
+.btn {
+    padding: 0.5rem 0.81rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    font-size: 13px;
+}
+
+#detail {
+    color: #fff;
+    background-color: #0a043c;
+    border-color: #0a043c;
+}
+
+#ubah {
+    color: #fff;
+    background-color: #464dee;
+    border-color: #464dee;
+}
+
+#hapus {
+    color: #fff;
+    background-color: #ee5b5b;
+    border-color: #ee5b5b;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #777777;
+    color: white;
+    text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
     #content, aside, .container {
         width: 100%;
@@ -161,7 +222,7 @@ header {
     }
 }
 
-#shots{
+#shots {
     text-align: center;
     max-width: 80%;
     object-position: center;

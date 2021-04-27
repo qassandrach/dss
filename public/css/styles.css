@@ -173,6 +173,12 @@ th, td {
     font-size: 13px;
 }
 
+#menu {
+    align-items: center;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
 #detail {
     color: #fff;
     background-color: #0a043c;

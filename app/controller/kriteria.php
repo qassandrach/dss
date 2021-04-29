@@ -18,5 +18,20 @@ class Kriteria extends Controller {
         $this->view('templates/footer');
     }
 
+
+    public function tambah(){
+        $data['kriteria'] = $this->model('kriteria_model')->getAllKriteria();
+        $data['no_kriteria'] = $this->model('kriteria_model')->countKriteria();
+        $this->view('templates/header', $data);
+        $this->view('kriteria/tambah', $data);
+        $this->view('templates/footer');
+    }
+
+    public function tambah_aksi(){
+        if ($this->model('kriteria_model')->tambahDataKriteria($_POST) > 0){
+            header('Location: ' . BASEURL . '/kriteria');
+            exit;
+        }
+    }
     
 }

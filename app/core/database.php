@@ -41,6 +41,8 @@ class Database {
                     $type = PDO::PARAM_BOOL;
                 case is_null($value):
                     $type = PDO::PARAM_NULL;
+                // case is_float($value):
+                //     $type = PDO::PARAM_STR;
                 default:
                     $type = PDO::PARAM_STR;
             }
@@ -61,5 +63,9 @@ class Database {
     public function single(){
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function rowCount(){
+        return $this->stmt->rowCount();
     }
 }

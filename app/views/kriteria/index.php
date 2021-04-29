@@ -4,14 +4,13 @@
     <div class="card">
         <h1 id="sekolah">Data Kriteria</h1>
         <div class="section">
-            <button>Tambah</button>
+            <button><a href="<?= BASEURL; ?>/kriteria/tambah">Tambah</a></button>
         </div>
         <div class="section">
             <table>
                 <thead>
                     <tr>
                         <th>Nama Kriteria</th>
-                        <th>Bobot</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -21,10 +20,8 @@
 
                         <tr>
                             <td><?= $kriteria['kriteria']; ?></td>
-                            <td><?= $kriteria['bobot']; ?></td>
-                            <td align="center">
-                                <a class="btn" id="detail" href="<?= BASEURL; ?>/sekolah/detail/<?= $kriteria['id'];?>">Detail</a>
-                                <a class="btn" id="ubah" href="layout.php?content=data_hotel_ubah&id_hotel=<?php echo $row['id_hotel']; ?>">Ubah</a>
+                            <td align="center" class="menu">
+                                <a class="btn" id="ubah" href="<?= BASEURL; ?>/kriteria/ubah/<?= $kriteria['id'];?>">Ubah</a>
                                 <a class="btn" id="hapus" href="layout.php?content=data_hotel_hapus&id_hotel=<?php echo $row['id_hotel']; ?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
                             </td>
                         </tr>

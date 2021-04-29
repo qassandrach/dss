@@ -23,11 +23,10 @@ class Kriteria_model {
 
     public function countKriteria(){
         $this->db->query('SELECT id_kriteria FROM ' . $this->table);
+        $this->db->resultSet();
         $jumlah = $this->db->rowCount();
 
         if ($jumlah != 0) {
-            $nilkod  = substr($jumlah[0], 1);
-            $kode    = (int) $nilkod;
             $kode    = $jumlah + 1;
             $kodeotomatis = str_pad($kode, 1, "0", STR_PAD_LEFT);
         } else {

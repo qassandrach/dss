@@ -21,8 +21,8 @@
                         <tr>
                             <td><?= $kriteria['kriteria']; ?></td>
                             <td align="center" class="menu">
-                                <a class="btn" id="ubah" href="<?= BASEURL; ?>/kriteria/ubah/<?= $kriteria['id'];?>">Ubah</a>
-                                <a class="btn" id="hapus" href="layout.php?content=data_hotel_hapus&id_hotel=<?php echo $row['id_hotel']; ?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
+                                <a class="btn" id="ubah" href="<?= BASEURL; ?>/kriteria/ubah/<?= $kriteria['id_kriteria'];?>">Ubah</a>
+                                <a class="btn" id="hapus" href="<?= BASEURL; ?>/kriteria/hapus/<?= $kriteria['id_kriteria'];?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
                             </td>
                         </tr>
                     <?php } ?>

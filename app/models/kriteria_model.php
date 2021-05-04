@@ -48,5 +48,16 @@ class Kriteria_model {
 
         return $this->db->rowCount();
     }
+
+    public function hapusDataKriteria($id) {
+        $query = "DELETE FROM data_kriteria WHERE id_kriteria = :id_kriteria";
+        $this->db->query($query);
+
+        $this->db->bind('id_kriteria', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
 ?>

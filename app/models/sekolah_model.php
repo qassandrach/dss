@@ -20,5 +20,20 @@ class Sekolah_model {
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+
+    public function countSekolah() {
+        $this->db->query('SELECT id FROM ' . $this->table);
+        $this->db->resultSet();
+        $jumlah = $this->db->rowCount();
+
+        if ($jumlah != 0) {
+            $kode    = $jumlah + 1;
+            $kodeotomatis = str_pad($kode, 1, "0", STR_PAD_LEFT);
+        } else {
+            $kodeotomatis = "1";
+        }
+
+        return $kodeotomatis;
+    }
 }
 ?>

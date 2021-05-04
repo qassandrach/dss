@@ -3,7 +3,7 @@
     <div class="card">
         <h1 id="sekolah">Data Sekolah</h1>
         <div class="section">
-            <button>Tambah</button>
+            <button><a href="<?= BASEURL; ?>/sekolah/tambah/">Tambah</a></button>
         </div>
         <div class="section">
             <table>

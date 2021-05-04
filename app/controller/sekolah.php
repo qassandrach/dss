@@ -17,6 +17,14 @@ class Sekolah extends Controller{
         $this->view('sekolah/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah(){
+        $data['no_sekolah'] = $this->model('sekolah_model')->countSekolah();
+        $data['kriteria'] = $this->model('kriteria_model')->getAllKriteria();
+        $this->view('templates/header', $data);
+        $this->view('sekolah/tambah', $data);
+        $this->view('templates/footer');
+    }
     public function page() {
         $data['judul'] = 'Pages';
         $this->view('templates/header', $data);

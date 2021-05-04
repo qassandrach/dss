@@ -1,10 +1,10 @@
 <main>
     <div class="card">
-        <h3>Tambah Kriteria</h3>
+        <h3>Tambah Sekolah</h3>
         <form action="<?= BASEURL; ?>/kriteria/tambah_aksi" method="post">
 
             <div class="form-group">
-                <label for="id_kriteria">ID Kriteria</label>
+                <label for="id_kriteria">ID Sekolah</label>
                 <div class="form-input">
                     <input type="text" class="col-input" id="id_kriteria" name="id_kriteria" value="<?= $data['no_sekolah']; ?>" readonly="readonly" required="required">
                 </div>
@@ -18,12 +18,22 @@
 
             </div>
             <?php
-            foreach ($data['kriteria'] as $kriteria) { ?>
+            foreach ($data['kriteria'] as $kriteria) { 
+            $tampil = json_decode($kriteria['penilaian'], true); ?>
                 <div class="form-group">
                     <label for="jenis_penilaian"><?= $kriteria['kriteria'] ?></label>
-                    <input type="hidden" name="jenis_penilaian[]" value="<?= $row['jenis_fasilitas'] ?>" readonly="readonly" />
-                    <select name="penilaian[]" class="form-control" required="required" id="inpnilai">
-                    <option>- Pilih <?php echo $row['jenis_fasilitas']; ?> -</option>
+                    <div class="form-input">
+                        <input type="hidden" name="nama_penilaian[]" value="<?= $kriteria['nama_fasilitas'] ?>" readonly="readonly" />
+                        <select name="penilaian[]" class="form-control" required="required" id="penilaian">
+                            <option>- Pilih <?php echo $kriteria['kriteria']; ?> -</option>
+                            <?php foreach ($tampil as $key => $value) { ?>
+                                <option value="<?= $value['nilai'] ?>"><?= $value['jenis'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <input type="text" name="inphasil[]" class="form-control form-control-sm" id="inphasil" value="0" required="required" readonly />
+
+                    </div>
+
 
                 </div>
             <?php }
@@ -37,25 +47,10 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        var el = `<div class="after-add-more">
-                    <div class="form-group">
-                        <label for="">Jenis Penilaian</label>
-                        <div class="form-input">
-                            <input type="text" id="jenis_penilaian" name="jenis_penilaian">
-                            <input type="number" id="penilaian" name="penilaian">
-                        </div>
-                    </div>
-                </div>`
-        $(".tambah").click(function() {
-
-            $(".after-add-more-wrapper").append(el);
-        });
-
-        // untuk menghapus field
-        $("body").on("click", ".hapus", function() {
-            $(this).parents(".control-group").remove();
-        });
-
-    });
+    $('body').on('change', '#penilaian', function() {
+		// mengambil nilai
+		var hasil = $(this).val();
+		// untuk megisi nilai pada total
+		$(this).parent().parent().find("#inphasil").attr('value', hasil);
+	});
 </script>

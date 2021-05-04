@@ -70,8 +70,8 @@
                     <div class="form-group">
                         <label for="">Jenis Penilaian</label>
                         <div class="form-input">
-                            <input type="text" id="jenis_penilaian" name="jenis_penilaian">
-                            <input type="number" id="penilaian" name="penilaian">
+                            <input type="text" id="jenis_penilaian" name="nama_penilaian[]" placeholder="Nama Penilaian">
+                            <input type="number" id="penilaian" name="penilaian[]" placeholder="Nilai">
                         </div>
                     </div>
                 </div>`

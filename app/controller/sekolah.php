@@ -19,6 +19,7 @@ class Sekolah extends Controller{
     }
 
     public function tambah(){
+        $data['judul'] = 'Tambah Daftar Sekolah';
         $data['no_sekolah'] = $this->model('sekolah_model')->countSekolah();
         $data['kriteria'] = $this->model('kriteria_model')->getAllKriteria();
         $this->view('templates/header', $data);
@@ -31,5 +32,12 @@ class Sekolah extends Controller{
         $this->view('sekolah/page');
         $this->view('templates/footer');
 
+    }
+
+    public function hapus($id){
+        if ($this->model('sekolah_model')->hapusDataSekolah($id) > 0){
+            header('Location: ' . BASEURL . '/sekolah');
+            exit;
+        }
     }
 }

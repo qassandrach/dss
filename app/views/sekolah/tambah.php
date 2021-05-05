@@ -13,7 +13,14 @@
             <div class="form-group">
                 <label for="kriteria">Nama Sekolah</label>
                 <div class="form-input">
-                    <input type="text" class="col-input" id="kriteria" name="kriteria" placeholder="Nama Kriteria">
+                    <input type="text" class="col-input" id="nama_sekolah" name="nama_sekolah" placeholder="Nama Sekolah">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="kriteria">Jumlah Siswa</label>
+                <div class="form-input">
+                    <input type="text" class="col-input" id="jumlah_siswa" name="jumlah_siswa" placeholder="Jumlah siswa">
                 </div>
 
             </div>

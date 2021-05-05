@@ -35,5 +35,16 @@ class Sekolah_model {
 
         return $kodeotomatis;
     }
+
+    public function hapusDataSekolah($id) {
+        $query = "DELETE FROM data_sekolah WHERE id = :id";
+        $this->db->query($query);
+
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
 ?>

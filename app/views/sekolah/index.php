@@ -9,11 +9,10 @@
             <table>
                 <thead>
                     <tr>
+                    <th>No</th>
                         <th>Nama Sekolah</th>
-                        <th>Lokasi</th>
-                        <th>Jumlah Siswa</th>
-                        <th>Akreditasi</th>
-                        <th>Aksi</t>
+                        <th>Alamat</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
 
@@ -21,10 +20,9 @@
                     <?php foreach ($data['sekolah'] as $sekolah) { ?>
 
                         <tr>
+                            <td><?= $sekolah['id']; ?></td>
                             <td><?= $sekolah['nama']; ?></td>
-                            <td><?= $sekolah['lokasi']; ?></td>
-                            <td><?= $sekolah['siswa']; ?></td>
-                            <td><?= $sekolah['akreditasi']; ?></td>
+                            <td><?= $sekolah['alamat']; ?></td>
                             <td align="center" class="menu">
                                 <a class="btn" id="detail" href="<?= BASEURL; ?>/sekolah/detail/<?= $sekolah['id'];?>">Detail</a>
                                 <a class="btn" id="ubah" href="layout.php?content=data_hotel_ubah&id_hotel=<?php echo $row['id_hotel']; ?>">Ubah</a>

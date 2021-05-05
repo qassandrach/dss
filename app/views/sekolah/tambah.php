@@ -1,12 +1,12 @@
 <main>
     <div class="card">
         <h3>Tambah Sekolah</h3>
-        <form action="<?= BASEURL; ?>/kriteria/tambah_aksi" method="post">
+        <form action="<?= BASEURL; ?>/sekolah/tambah_aksi" method="post">
 
             <div class="form-group">
-                <label for="id_kriteria">ID Sekolah</label>
+                <label for="id_sekolah">ID Sekolah</label>
                 <div class="form-input">
-                    <input type="text" class="col-input" id="id_kriteria" name="id_kriteria" value="<?= $data['no_sekolah']; ?>" readonly="readonly" required="required">
+                    <input type="text" class="col-input" id="id_sekolah" name="id_sekolah" value="<?= $data['no_sekolah']; ?>" readonly="readonly" required="required">
                 </div>
 
             </div>
@@ -29,8 +29,9 @@
             $tampil = json_decode($kriteria['penilaian'], true); ?>
                 <div class="form-group">
                     <label for="jenis_penilaian"><?= $kriteria['kriteria'] ?></label>
-                    <div class="form-input">
-                        <input type="hidden" name="nama_penilaian[]" value="<?= $kriteria['nama_fasilitas'] ?>" readonly="readonly" />
+                    <input type="hidden" name="idkriteria[]" value="<?= $kriteria['id_kriteria'] ?>" readonly="readonly" />
+                    <input type="hidden" name="nama_penilaian[]" value="<?= $kriteria['kriteria'] ?>" readonly="readonly" />
+                    <div class="form-input"> 
                         <select name="penilaian[]" class="form-control" required="required" id="penilaian">
                             <option>- Pilih <?php echo $kriteria['kriteria']; ?> -</option>
                             <?php foreach ($tampil as $key => $value) { ?>
@@ -45,8 +46,15 @@
                 </div>
             <?php }
             ?>
+            <div class="form-group">
+                <label for="alamt">Alamat</label>
+                <div class="form-input">
+                <textarea class="form-control" name="alamat" rows="8" cols="25" placeholder="Alamat sekolah" required="required"></textarea>
+                </div>
+
+            </div>
             <button id="simpan" type="submit">Simpan</button>
-            <a class="batal" href="<?= BASEURL; ?>/kriteria/index" class="btn btn-light">Batal</a>
+            <a class="batal" href="<?= BASEURL; ?>/sekolah/index" class="btn btn-light">Batal</a>
 
         </form>
 

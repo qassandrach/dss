@@ -264,7 +264,11 @@ input[type=text], input[type=number],select, textarea {
     border-radius: 2px;
     resize: vertical;
   }
-
+.form-detail {
+    padding: 12px;
+    display: inline-block;
+    width: 300px;
+}
 .col-input {
     width: 100%;
 }

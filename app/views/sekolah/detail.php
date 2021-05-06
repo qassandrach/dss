@@ -1,36 +1,43 @@
 <main>
-
+    <?php $sekolah = $data['sekolah']; 
+    
+    ?>
     <div class="card">
-        <h1 id="sekolah">Detail <?= $data['sekolah']['nama'];?></h1>
-        <div class="section">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Lokasi</th>
-                        <th>Jumlah Siswa</th>
-                        <th>Akreditasi</th>
-                        <th>Aksi</t>
-                    </tr>
-                </thead>
+        <h1 id="sekolah">Detail <?= $sekolah['nama']; ?></h1>
+        <form>
+            <div class="form-group">
+                <label for="id_sekolah">ID Sekolah</label>
+                <div class="form-detail">
+                    <?= $sekolah['id']; ?>
+                </div>
 
-                <tbody>
-                    <?php foreach ($data['sekolah'] as $sekolah) { ?>
+            </div>
 
-                        <tr>
-                            <td><?= $sekolah['nama']; ?></td>
-                            <td><?= $sekolah['lokasi']; ?></td>
-                            <td><?= $sekolah['siswa']; ?></td>
-                            <td><?= $sekolah['akreditasi']; ?></td>
-                            <td align="center">
-                                <a class="btn" id="detail" href="layout.php?content=data_hotel_detail&id_hotel=<?php echo $row['id_hotel']; ?>">Detail</a>
-                                <a class="btn" id="ubah" href="layout.php?content=data_hotel_ubah&id_hotel=<?php echo $row['id_hotel']; ?>">Ubah</a>
-                                <a class="btn" id="hapus" href="layout.php?content=data_hotel_hapus&id_hotel=<?php echo $row['id_hotel']; ?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+            <div class="form-group">
+                <label for="nama_sekolah">Nama Sekolah</label>
+                <div class="form-detail">
+                    <?= $sekolah['nama']; ?>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="alamat_sekolah">Alamat Sekolah</label>
+                <div class="form-detail">
+                    <?= $sekolah['alamat']; ?>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="alamat_sekolah">Alamat Sekolah</label>
+                <div class="form-detail">
+                    <?= $sekolah['alamat']; ?>
+                </div>
+
+            </div>
+
+        </form>
 
     </div>
 

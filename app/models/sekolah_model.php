@@ -57,16 +57,14 @@ class Sekolah_model {
 
         $jenis_penilaian = $data['nama_penilaian'];
         $nilai = $data['penilaian'];
-        $hasil = $data['inphasil'];
-        $hasil[] = $data['penilaian'][count($hasil)];
+       
 
         $jumlahkriteria = array();
 
         for ($i=0; $i < count($kriteria); $i++) { 
             $penilaian_array = array (
                 'jenis'.$i => $jenis_penilaian[$i],
-                'nilai'.$i => $nilai[$i],
-                'hasil'.$i => empty($hasil[$i] ? $nilai[$i] : $hasil[$i]),
+                'nilai'.$i => $nilai[$i]
             );
 
             array_push($jumlahkriteria, $penilaian_array);
@@ -91,7 +89,7 @@ class Sekolah_model {
 
             $this->db->bind('id_alternatif', $id_sekolah);
             $this->db->bind('id_kriteria', $kriteria[$i]);
-            $this->db->bind('nilai', $hasil[$i]);
+            $this->db->bind('nilai', $nilai[$i]);
 
             $this->db->execute();
 

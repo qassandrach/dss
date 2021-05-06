@@ -36,11 +36,13 @@
                             <option>- Pilih <?php echo $kriteria['kriteria']; ?> -</option>
                             <?php foreach ($tampil as $key => $value) { ?>
                                 <option value="<?= $value['nilai'] ?>"><?= $value['jenis'] ?></option>
+                                
                             <?php } ?>
                         </select>
                         <input type="text" name="inphasil[]" class="form-control form-control-sm" id="inphasil" value="0" required="required" readonly />
-
+    
                     </div>
+                    
 
 
                 </div>
@@ -63,9 +65,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $('body').on('change', '#penilaian', function() {
-		// mengambil nilai
 		var hasil = $(this).val();
-		// untuk megisi nilai pada total
 		$(this).parent().parent().find("#inphasil").attr('value', hasil);
 	});
 </script>

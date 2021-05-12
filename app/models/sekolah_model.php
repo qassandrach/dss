@@ -48,6 +48,9 @@ class Sekolah_model {
     }
 
     public function tambahDataSekolah($data) {
+        // echo '<pre>';
+        // var_dump($data);
+        // echo '</pre>';
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
@@ -56,14 +59,16 @@ class Sekolah_model {
 
 
         $jenis_penilaian = $data['nama_penilaian'];
-        $nilai = $data['penilaian'];
+        $jenis = $data['penilaian'];
+        $nilai = $data['inphasil'];
        
 
         $jumlahkriteria = array();
 
         for ($i=0; $i < count($kriteria); $i++) { 
             $penilaian_array = array (
-                'jenis'.$i => $jenis_penilaian[$i],
+                'penilaian' => $jenis_penilaian[$i],
+                'jenis'.$i => $jenis[$i],
                 'nilai'.$i => $nilai[$i]
             );
 
@@ -96,6 +101,7 @@ class Sekolah_model {
         }
 
         return $this->db->rowCount();
+        exit();
     }
 }
 ?>

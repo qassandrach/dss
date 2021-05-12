@@ -31,14 +31,17 @@
                     <label for="jenis_penilaian"><?= $kriteria['kriteria'] ?></label>
                     <input type="hidden" name="idkriteria[]" value="<?= $kriteria['id_kriteria'] ?>" readonly="readonly" />
                     <input type="hidden" name="nama_penilaian[]" value="<?= $kriteria['kriteria'] ?>" readonly="readonly" />
+                    <input type="hidden" name="penilaian[]" id="penilaianText"/>
                     <div class="form-input"> 
-                        <select name="penilaian[]" class="form-control" required="required" id="penilaian">
+                        <!-- dari sini udah untuk input lokasi dan kawan2nya -->
+                        <select class="form-control" required="required" id="penilaian">
                             <option>- Pilih <?php echo $kriteria['kriteria']; ?> -</option>
                             <?php foreach ($tampil as $key => $value) { ?>
-                                <option value="<?= $value['nilai'] ?>"><?= $value['jenis'] ?></option>
-                                
+                                <!-- mau ngambil value jenis nya juga -->
+                                <option value="<?= $value['nilai'] ?>"><?= $value['jenis'] ?></option>   
                             <?php } ?>
                         </select>
+                        <!-- value optionnya ditaro disini via javascript -->
                         <input type="text" name="inphasil[]" class="form-control form-control-sm" id="inphasil" value="0" required="required" readonly />
     
                     </div>
@@ -64,8 +67,12 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+// ini javascriptnya
     $('body').on('change', '#penilaian', function() {
 		var hasil = $(this).val();
+        var label = $(this).children('option:selected').text();
 		$(this).parent().parent().find("#inphasil").attr('value', hasil);
+        // $('#penilaianText').val(label);
+        $(this).parent().parent().find('#penilaianText').val(label);
 	});
 </script>

@@ -37,7 +37,7 @@ class Sekolah_model {
     }
 
     public function hapusDataSekolah($id) {
-        $query = "DELETE FROM data_sekolah WHERE id = :id";
+        $query = "DELETE data_sekolah, data_evaluasi FROM data_sekolah INNER JOIN data_evaluasi ON data_evaluasi.id_alternatif = data_sekolah.id WHERE data_sekolah.id = :id";
         $this->db->query($query);
 
         $this->db->bind('id', $id);
@@ -67,7 +67,7 @@ class Sekolah_model {
 
         for ($i=0; $i < count($kriteria); $i++) { 
             $penilaian_array = array (
-                'penilaian' => $jenis_penilaian[$i],
+                'penilaian'.$i => $jenis_penilaian[$i],
                 'jenis'.$i => $jenis[$i],
                 'nilai'.$i => $nilai[$i]
             );

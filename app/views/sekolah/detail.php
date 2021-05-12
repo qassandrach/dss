@@ -1,6 +1,6 @@
 <main>
     <?php $sekolah = $data['sekolah']; 
-    
+    $penilaian = json_decode($data['sekolah']['penilaian'], true);
     ?>
     <div class="card">
         <h1 id="sekolah">Detail <?= $sekolah['nama']; ?></h1>
@@ -30,9 +30,9 @@
             </div>
 
             <div class="form-group">
-                <label for="alamat_sekolah">Alamat Sekolah</label>
+                <label for="alamat_sekolah">Akreditasi</label>
                 <div class="form-detail">
-                    <?= $sekolah['alamat']; ?>
+                    <?= var_dump($penilaian);?>
                 </div>
 
             </div>

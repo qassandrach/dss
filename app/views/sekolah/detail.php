@@ -1,6 +1,6 @@
 <main>
     <?php $sekolah = $data['sekolah']; 
-    $penilaian = json_decode($data['sekolah']['penilaian'], true);
+    
     ?>
     <div class="card">
         <h1 id="sekolah">Detail <?= $sekolah['nama']; ?></h1>
@@ -29,14 +29,37 @@
 
             </div>
 
+            
+        </form>
+
+        <form>
             <div class="form-group">
-                <label for="alamat_sekolah">Akreditasi</label>
-                <div class="form-detail">
-                    <?= var_dump($penilaian);?>
-                </div>
-
+            <table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Kriteria</th>
+                                    <th>Penilaian</th>
+									<th>Nilai</th>
+									<!-- <th>Gambar</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$no = 1;
+								$penilaian = json_decode($data['sekolah']['penilaian'], true);
+								for ($i = 0; $i < count($penilaian); $i++) { ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $penilaian[$i]['penilaian' . $i] ?></td>
+                                        <td><?= $penilaian[$i]['jenis' . $i] ?></td>
+                                        <td><?= $penilaian[$i]['nilai' . $i] ?></td>
+										
+									</tr>
+								<?php } ?>
+							</tbody>
+						</table>
             </div>
-
         </form>
 
     </div>

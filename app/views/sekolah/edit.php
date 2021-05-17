@@ -31,7 +31,7 @@
             for ($i = 0; $i < count($data['kriteria']); $i++) {
                 $kriteria = $data['kriteria'][$i];
                 $tampil = json_decode($kriteria['penilaian'], true);
-                ?>
+            ?>
 
                 <div class="form-group">
                     <label for="jenis_penilaian"><?= $kriteria['kriteria'] ?></label>
@@ -41,25 +41,31 @@
                     <div class="form-input">
                         <!-- dari sini udah untuk input lokasi dan kawan2nya -->
                         <select class="form-control" required="required" id="penilaian">
-                            <option><?php echo $penilaian[$i]['jenis'.$i]; ?></option>
+                            <option><?php echo $penilaian[$i]['jenis' . $i]; ?></option>
                             <?php foreach ($tampil as $key => $value) { ?>
                                 <!-- mau ngambil value jenis nya juga -->
                                 <option value="<?= $value['nilai'] ?>"><?= $value['jenis'] ?></option>
                             <?php } ?>
                         </select>
                         <!-- value optionnya ditaro disini via javascript -->
-                        <input type="text" name="inphasil[]" value="<?= $penilaian[$i]['nilai'.$i]; ?>" class="form-control form-control-sm" id="inphasil" required="required" readonly />
+                        <input type="text" name="inphasil[]" value="<?= $penilaian[$i]['nilai' . $i]; ?>" class="form-control form-control-sm" id="inphasil" required="required" readonly />
 
                     </div>
-
-
 
                 </div>
             <?php
 
             }
-             ?>
+            ?>
+            <div class="form-group">
+                <label for="alamt">Alamat</label>
+                <div class="form-input">
+                    <textarea class="form-control" name="alamat" rows="8" cols="25" placeholder="Alamat sekolah" required="required"><?= $sekolah['alamat']; ?></textarea>
+                </div>
 
+            </div>
+            <button id="simpan" type="submit">Simpan</button>
+            <a class="batal" href="<?= BASEURL; ?>/sekolah/index" class="btn btn-light">Batal</a>
 
         </form>
 

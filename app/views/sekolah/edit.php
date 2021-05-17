@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="id_sekolah">Jumlah Siswa</label>
                 <div class="form-input">
-                    <input type="text" name="nama_sekolah" value="<?= $sekolah['siswa']; ?>" required="required" />
+                    <input type="text" name="jumlah_siswa" value="<?= $sekolah['siswa']; ?>" required="required" />
                 </div>
             </div>
 
@@ -37,11 +37,11 @@
                     <label for="jenis_penilaian"><?= $kriteria['kriteria'] ?></label>
                     <input type="hidden" name="idkriteria[]" value="<?= $kriteria['id_kriteria'] ?>" readonly="readonly" />
                     <input type="hidden" name="nama_penilaian[]" value="<?= $kriteria['kriteria'] ?>" readonly="readonly" />
-                    <input type="hidden" name="penilaian[]" id="penilaianText" />
+                    <input type="hidden" name="penilaian[]" id="penilaianText" value="<?= $penilaian[$i]['jenis' . $i]; ?>"/>
                     <div class="form-input">
                         <!-- dari sini udah untuk input lokasi dan kawan2nya -->
                         <select class="form-control" required="required" id="penilaian">
-                            <option><?php echo $penilaian[$i]['jenis' . $i]; ?></option>
+                            <option value="<?= $penilaian[$i]['nilai' . $i]; ?>"><?php echo $penilaian[$i]['jenis' . $i]; ?></option>
                             <?php foreach ($tampil as $key => $value) { ?>
                                 <!-- mau ngambil value jenis nya juga -->
                                 <option value="<?= $value['nilai'] ?>"><?= $value['jenis'] ?></option>

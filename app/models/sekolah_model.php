@@ -104,8 +104,57 @@ class Sekolah_model {
         exit();
     }
 
-    public function editDataSekolah($id) {
-        
+    public function editDataSekolah($data) {
+        $id_sekolah = $data['id_sekolah'];
+        $sekolah = $data['nama_sekolah'];
+        $jumlah_siswa = $data['jumlah_siswa'];
+        $kriteria = $data['idkriteria'];
+        $alamat = $data['alamat'];
+
+        $jenis_penilaian = $data['nama_penilaian'];
+        $jenis = $data['penilaian'];
+        $nilai = $data['inphasil'];
+       
+
+        $jumlahkriteria = array();
+
+        for ($i=0; $i < count($kriteria); $i++) { 
+            $penilaian_array = array (
+                'penilaian'.$i => $jenis_penilaian[$i],
+                'jenis'.$i => $jenis[$i],
+                'nilai'.$i => $nilai[$i]
+            );
+
+            array_push($jumlahkriteria, $penilaian_array);
+        }
+
+        $hasil_akhir = json_encode($jumlahkriteria);
+
+        $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id = :id";
+        $this->db->query($query1);
+
+        $this->db->bind('id', $id_sekolah);
+        $this->db->bind('nama', $sekolah);
+        $this->db->bind('siswa', $jumlah_siswa);
+        $this->db->bind('alamat', $alamat);
+        $this->db->bind('penilaian', $hasil_akhir);
+
+        $this->db->execute();
+
+        for ($i=0; $i < count($kriteria); $i++) {
+            $query2    = "UPDATE data_evaluasi SET nilai = :nilai WHERE id_alternatif = :id_alternatif AND id_kriteria = :id_kriteria";
+            $this->db->query($query2);
+
+            $this->db->bind('id_alternatif', $id_sekolah);
+            $this->db->bind('id_kriteria', $kriteria[$i]);
+            $this->db->bind('nilai', $nilai[$i]);
+
+            $this->db->execute();
+
+        }
+
+        return $this->db->rowCount();
+        exit();
     }
 }
 ?>

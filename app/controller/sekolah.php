@@ -57,10 +57,9 @@ class Sekolah extends Controller{
         $this->view('templates/footer');
     }
 
-    public function edit_aksi($id){
-        if ($this->model('sekolah_model')->editDataSekolah($id) > 0){
+    public function edit_aksi(){
+        if ($this->model('sekolah_model')->editDataSekolah($_POST) > 0){
             header('Location: ' . BASEURL . '/sekolah');
-            exit;
         }
     }
 }

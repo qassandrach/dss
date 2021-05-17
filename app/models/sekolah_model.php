@@ -103,5 +103,9 @@ class Sekolah_model {
         return $this->db->rowCount();
         exit();
     }
+
+    public function editDataSekolah($id) {
+        
+    }
 }
 ?>

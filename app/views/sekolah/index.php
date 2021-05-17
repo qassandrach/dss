@@ -25,7 +25,7 @@
                             <td><?= $sekolah['alamat']; ?></td>
                             <td align="center" class="menu">
                                 <a class="btn" id="detail" href="<?= BASEURL; ?>/sekolah/detail/<?= $sekolah['id'];?>">Detail</a>
-                                <a class="btn" id="ubah" href="layout.php?content=data_hotel_ubah&id_hotel=<?php echo $row['id_hotel']; ?>">Ubah</a>
+                                <a class="btn tampilModalUbah" id="ubah" href="<?= BASEURL; ?>/sekolah/edit/<?= $sekolah['id'];?>">Ubah</a>
                                 <a class="btn" id="hapus" href="<?= BASEURL; ?>/sekolah/hapus/<?= $sekolah['id'];?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
                             </td>
                         </tr>

@@ -47,4 +47,20 @@ class Sekolah extends Controller{
             exit;
         }
     }
+
+    public function edit($id){
+        $data['judul'] = 'Edit Detail Sekolah';
+        $data['sekolah'] = $this->model('sekolah_model')->getSekolahByID($id);
+        $data['kriteria'] = $this->model('kriteria_model')->getAllKriteria();
+        $this->view('templates/header', $data);
+        $this->view('sekolah/edit', $data);
+        $this->view('templates/footer');
+    }
+
+    public function edit_aksi($id){
+        if ($this->model('sekolah_model')->editDataSekolah($id) > 0){
+            header('Location: ' . BASEURL . '/sekolah');
+            exit;
+        }
+    }
 }

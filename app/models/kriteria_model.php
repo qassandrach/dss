@@ -16,7 +16,7 @@ class Kriteria_model {
     }
 
     public function getKriteriaById($id){
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_kriteria=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }

@@ -33,5 +33,13 @@ class Kriteria extends Controller {
             exit;
         }
     }
+
+    public function ubah($id){
+        $data['judul'] = 'Ubah Data Kriteria';
+        $data['kriteria'] = $this->model('kriteria_model')->getKriteriaById($id);
+        $this->view('templates/header', $data);
+        $this->view('kriteria/edit', $data);
+        $this->view('templates/footer');
+    }
     
 }

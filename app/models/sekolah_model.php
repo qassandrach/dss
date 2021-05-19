@@ -48,21 +48,15 @@ class Sekolah_model {
     }
 
     public function tambahDataSekolah($data) {
-        // echo '<pre>';
-        // var_dump($data);
-        // echo '</pre>';
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
         $kriteria = $data['idkriteria'];
         $alamat = $data['alamat'];
-
-
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];
         $nilai = $data['inphasil'];
        
-
         $jumlahkriteria = array();
 
         for ($i=0; $i < count($kriteria); $i++) { 
@@ -100,6 +94,7 @@ class Sekolah_model {
 
         }
 
+
         return $this->db->rowCount();
         exit();
     }
@@ -110,12 +105,9 @@ class Sekolah_model {
         $jumlah_siswa = $data['jumlah_siswa'];
         $kriteria = $data['idkriteria'];
         $alamat = $data['alamat'];
-
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];
         $nilai = $data['inphasil'];
-       
-
         $jumlahkriteria = array();
 
         for ($i=0; $i < count($kriteria); $i++) { 
@@ -129,7 +121,6 @@ class Sekolah_model {
         }
 
         $hasil_akhir = json_encode($jumlahkriteria);
-
         $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id = :id";
         $this->db->query($query1);
 
@@ -141,6 +132,7 @@ class Sekolah_model {
 
         $this->db->execute();
 
+        $affectedRow = 0;
         for ($i=0; $i < count($kriteria); $i++) {
             $query2    = "UPDATE data_evaluasi SET nilai = :nilai WHERE id_alternatif = :id_alternatif AND id_kriteria = :id_kriteria";
             $this->db->query($query2);
@@ -150,11 +142,12 @@ class Sekolah_model {
             $this->db->bind('nilai', $nilai[$i]);
 
             $this->db->execute();
-
+            $affectedRow += $this->db->rowCount();
+        
         }
-
-        return $this->db->rowCount();
+        
+        return $affectedRow;
+        
         exit();
     }
 }
-?>

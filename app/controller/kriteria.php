@@ -34,12 +34,19 @@ class Kriteria extends Controller {
         }
     }
 
-    public function ubah($id){
+    public function edit($id){
         $data['judul'] = 'Ubah Data Kriteria';
         $data['kriteria'] = $this->model('kriteria_model')->getKriteriaById($id);
         $this->view('templates/header', $data);
         $this->view('kriteria/edit', $data);
         $this->view('templates/footer');
+    }
+
+    public function edit_aksi(){
+        if ($this->model('kriteria_model')->editDataKriteria($_POST) > 0){
+            header('Location: ' . BASEURL . '/kriteria');
+            exit;
+        }
     }
     
 }

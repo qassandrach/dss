@@ -74,5 +74,32 @@ class Kriteria_model {
 
         return $this->db->rowCount();
     }
+
+    public function editDataKriteria($data){
+        $jumlah_penilaian = array();
+
+        for ($i = 0; $i < count($data['nama_penilaian']); $i++) { 
+            $array = array(
+                'jenis' => $data['nama_penilaian'][$i],
+                'nilai' => $data['penilaian'][$i]
+            );
+
+            array_push($jumlah_penilaian, $array);
+        }
+
+        $hasil = json_encode($jumlah_penilaian);
+
+        $query = "UPDATE data_kriteria SET kriteria = :kriteria, bobot = :bobot, penilaian = :penilaian WHERE id_kriteria = :id_kriteria";
+        $this->db->query($query);
+
+        $this->db->bind('id_kriteria', $data['id_kriteria']);
+        $this->db->bind('kriteria', $data['kriteria']);
+        $this->db->bind('bobot', 0);
+        $this->db->bind('penilaian', $hasil);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
 ?>

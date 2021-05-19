@@ -24,7 +24,7 @@
             </div>
             <?
             foreach ($penilaian as $key => $value) {
-                # code...
+            
             ?>
                 <div class="after-add-more">
                     <div class="form-group">

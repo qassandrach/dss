@@ -56,7 +56,7 @@ class Kriteria_model {
 
         $this->db->bind('id_kriteria', $data['id_kriteria']);
         $this->db->bind('kriteria', $data['kriteria']);
-        $this->db->bind('bobot', 0);
+        $this->db->bind('bobot', $data['bobot']);
         $this->db->bind('penilaian', $hasil);
 
         $this->db->execute();
@@ -94,7 +94,7 @@ class Kriteria_model {
 
         $this->db->bind('id_kriteria', $data['id_kriteria']);
         $this->db->bind('kriteria', $data['kriteria']);
-        $this->db->bind('bobot', 0);
+        $this->db->bind('bobot', $data['bobot']);
         $this->db->bind('penilaian', $hasil);
 
         $this->db->execute();

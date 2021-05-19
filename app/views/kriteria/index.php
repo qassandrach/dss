@@ -11,6 +11,7 @@
                 <thead>
                     <tr>
                         <th>Nama Kriteria</th>
+                        <th>Bobot</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -20,6 +21,7 @@
 
                         <tr>
                             <td><?= $kriteria['kriteria']; ?></td>
+                            <td><?= $kriteria['bobot']; ?></td>
                             <td align="center" class="menu">
                                 <a class="btn" id="ubah" href="<?= BASEURL; ?>/kriteria/edit/<?= $kriteria['id_kriteria'];?>">Ubah</a>
                                 <a class="btn" id="hapus" href="<?= BASEURL; ?>/kriteria/hapus/<?= $kriteria['id_kriteria'];?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>

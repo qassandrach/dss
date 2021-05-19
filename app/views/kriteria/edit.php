@@ -22,6 +22,13 @@
                 </div>
 
             </div>
+            <div class="form-group">
+                <label for="kriteria">Bobot</label>
+                <div class="form-input">
+                    <input type="text" class="col-input" id="bobot" name="bobot" value="<?= $kriteria['bobot']; ?>" required="required">
+                </div>
+
+            </div>
             <?
             foreach ($penilaian as $key => $value) {
             

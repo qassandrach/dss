@@ -22,7 +22,9 @@ class Sekolah_model {
     }
 
     public function countSekolah() {
+
         $this->db->query('SELECT id_sekolah FROM ' . $this->table);
+
         $this->db->resultSet();
         $jumlah = $this->db->rowCount();
 
@@ -35,6 +37,7 @@ class Sekolah_model {
 
         return $kodeotomatis;
     }
+
 
     public function hapusDataSekolah($id) {
         $query = "DELETE data_sekolah, data_evaluasi FROM data_sekolah INNER JOIN data_evaluasi ON data_evaluasi.id_sekolah = data_sekolah.id_sekolah WHERE data_sekolah.id_sekolah = :id_sekolah";
@@ -51,7 +54,7 @@ class Sekolah_model {
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
-        $kriteria = $data['idkriteria'];
+        $kriteria = $data['id_sekolahkriteria'];
         $alamat = $data['alamat'];
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];
@@ -83,11 +86,13 @@ class Sekolah_model {
         $this->db->execute();
 
         for ($i=0; $i < count($kriteria); $i++) {
+
             $query2    = "INSERT INTO data_evaluasi (id_sekolah, id_kriteria, nilai) VALUES (:id_sekolah, :id_kriteria, :nilai)";
             $this->db->query($query2);
 
             $this->db->bind('id_sekolah', $id_sekolah);
             $this->db->bind('id_kriteria', $kriteria[$i]);
+
             $this->db->bind('nilai', $nilai[$i]);
 
             $this->db->execute();
@@ -103,7 +108,7 @@ class Sekolah_model {
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
-        $kriteria = $data['idkriteria'];
+        $kriteria = $data['id_sekolahkriteria'];
         $alamat = $data['alamat'];
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];
@@ -122,6 +127,7 @@ class Sekolah_model {
 
         $hasil_akhir = json_encode($jumlahkriteria);
         $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id_sekolah = :id_sekolah";
+
         $this->db->query($query1);
 
         $this->db->bind('id_sekolah', $id_sekolah);

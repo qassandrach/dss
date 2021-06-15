@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="id_sekolah">ID Sekolah</label>
                 <div class="form-detail">
-                    <?= $sekolah['id']; ?>
+                    <?= $sekolah['id_sekolah']; ?>
                 </div>
 
             </div>

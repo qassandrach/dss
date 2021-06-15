@@ -20,13 +20,13 @@
                     <?php foreach ($data['sekolah'] as $sekolah) { ?>
 
                         <tr>
-                            <td><?= $sekolah['id']; ?></td>
+                            <td><?= $sekolah['id_sekolah']; ?></td>
                             <td><?= $sekolah['nama']; ?></td>
                             <td><?= $sekolah['alamat']; ?></td>
                             <td align="center" class="menu">
-                                <a class="btn" id="detail" href="<?= BASEURL; ?>/sekolah/detail/<?= $sekolah['id'];?>">Detail</a>
-                                <a class="btn tampilModalUbah" id="ubah" href="<?= BASEURL; ?>/sekolah/edit/<?= $sekolah['id'];?>">Ubah</a>
-                                <a class="btn" id="hapus" href="<?= BASEURL; ?>/sekolah/hapus/<?= $sekolah['id'];?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
+                                <a class="btn" id="detail" href="<?= BASEURL; ?>/sekolah/detail/<?= $sekolah['id_sekolah'];?>">Detail</a>
+                                <a class="btn tampilModalUbah" id="ubah" href="<?= BASEURL; ?>/sekolah/edit/<?= $sekolah['id_sekolah'];?>">Ubah</a>
+                                <a class="btn" id="hapus" href="<?= BASEURL; ?>/sekolah/hapus/<?= $sekolah['id_sekolah'];?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
                             </td>
                         </tr>
                     <?php } ?>

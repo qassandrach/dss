@@ -21,6 +21,11 @@ class Kriteria_model {
         return $this->db->single();
     }
 
+    public function getIdKriteria(){
+        $this->db->query('SELECT id_kriteria, kriteria FROM data_kriteria');
+        return $this->db->resultSet();
+    }
+
     public function countKriteria(){
         $this->db->query('SELECT id_kriteria FROM ' . $this->table);
         $this->db->resultSet();

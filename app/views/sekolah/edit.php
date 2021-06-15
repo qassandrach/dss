@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label for="id_sekolah">Id Sekolah</label>
                 <div class="form-input">
-                    <input type="text" name="id_sekolah" value="<?= $sekolah['id']; ?>" readonly="readonly" required="required" />
+                    <input type="text" name="id_sekolah" value="<?= $sekolah['id_sekolah']; ?>" readonly="readonly" required="required" />
                 </div>
             </div>
             <div class="form-group">

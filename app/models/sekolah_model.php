@@ -15,14 +15,16 @@ class Sekolah_model {
         return $this->db->resultSet();
     }
 
-    public function getSekolahById($id_sekolah){
+    public function getSekolahById($id){
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_sekolah=:id_sekolah');
-        $this->db->bind('id_sekolah', $id_sekolah);
+        $this->db->bind('id_sekolah', $id);
         return $this->db->single();
     }
 
     public function countSekolah() {
-        $this->db->query('SELECT id_sekolahFROM ' . $this->table);
+
+        $this->db->query('SELECT id_sekolah FROM ' . $this->table);
+
         $this->db->resultSet();
         $jumlah = $this->db->rowCount();
 
@@ -36,11 +38,12 @@ class Sekolah_model {
         return $kodeotomatis;
     }
 
-    public function hapusDataSekolah($id_sekolah) {
-        $query = "DELETE data_sekolah, data_evaluasi FROM data_sekolah INNER JOIN data_evaluasi ON data_evaluasi.id_sekolah_alternatif = data_sekolah.id_sekolahWHERE data_sekolah.id_sekolah= :id_sekolah";
+
+    public function hapusDataSekolah($id) {
+        $query = "DELETE data_sekolah, data_evaluasi FROM data_sekolah INNER JOIN data_evaluasi ON data_evaluasi.id_sekolah = data_sekolah.id_sekolah WHERE data_sekolah.id_sekolah = :id_sekolah";
         $this->db->query($query);
 
-        $this->db->bind('id_sekolah', $id_sekolah);
+        $this->db->bind('id_sekolah', $id);
 
         $this->db->execute();
 
@@ -83,11 +86,13 @@ class Sekolah_model {
         $this->db->execute();
 
         for ($i=0; $i < count($kriteria); $i++) {
-            $query2    = "INSERT INTO data_evaluasi (id_sekolah_alternatif, id_sekolah_kriteria, nilai) VALUES (:id_sekolah_alternatif, :id_sekolah_kriteria, :nilai)";
+
+            $query2    = "INSERT INTO data_evaluasi (id_sekolah, id_kriteria, nilai) VALUES (:id_sekolah, :id_kriteria, :nilai)";
             $this->db->query($query2);
 
-            $this->db->bind('id_sekolah_alternatif', $id_sekolah);
-            $this->db->bind('id_sekolah_kriteria', $kriteria[$i]);
+            $this->db->bind('id_sekolah', $id_sekolah);
+            $this->db->bind('id_kriteria', $kriteria[$i]);
+
             $this->db->bind('nilai', $nilai[$i]);
 
             $this->db->execute();
@@ -121,7 +126,8 @@ class Sekolah_model {
         }
 
         $hasil_akhir = json_encode($jumlahkriteria);
-        $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id_sekolah= :id_sekolah";
+        $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id_sekolah = :id_sekolah";
+
         $this->db->query($query1);
 
         $this->db->bind('id_sekolah', $id_sekolah);
@@ -134,11 +140,11 @@ class Sekolah_model {
 
         $affectedRow = 0;
         for ($i=0; $i < count($kriteria); $i++) {
-            $query2    = "UPDATE data_evaluasi SET nilai = :nilai WHERE id_sekolah_alternatif = :id_sekolah_alternatif AND id_sekolah_kriteria = :id_sekolah_kriteria";
+            $query2    = "UPDATE data_evaluasi SET nilai = :nilai WHERE id_sekolah = :id_sekolah AND id_kriteria = :id_kriteria";
             $this->db->query($query2);
 
-            $this->db->bind('id_sekolah_alternatif', $id_sekolah);
-            $this->db->bind('id_sekolah_kriteria', $kriteria[$i]);
+            $this->db->bind('id_sekolah', $id_sekolah);
+            $this->db->bind('id_kriteria', $kriteria[$i]);
             $this->db->bind('nilai', $nilai[$i]);
 
             $this->db->execute();

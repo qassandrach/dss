@@ -29,7 +29,7 @@
             $tampil = json_decode($kriteria['penilaian'], true); ?>
                 <div class="form-group">
                     <label for="jenis_penilaian"><?= $kriteria['kriteria'] ?></label>
-                    <input type="hidden" name="idkriteria[]" value="<?= $kriteria['id_kriteria'] ?>" readonly="readonly" />
+                    <input type="hidden" name="id_kriteria[]" value="<?= $kriteria['id_kriteria'] ?>" readonly="readonly" />
                     <input type="hidden" name="nama_penilaian[]" value="<?= $kriteria['kriteria'] ?>" readonly="readonly" />
                     <input type="hidden" name="penilaian[]" id="penilaianText"/>
                     <div class="form-input"> 

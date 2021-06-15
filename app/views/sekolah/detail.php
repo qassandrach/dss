@@ -49,7 +49,6 @@
                         $no = 1;
                         
                         $penilaian = json_decode($data['sekolah']['penilaian'], true);
-                        var_dump($penilaian);
                         for ($i = 0; $i < count($penilaian); $i++) {
 
                         ?>

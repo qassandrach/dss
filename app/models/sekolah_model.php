@@ -45,21 +45,31 @@ class Sekolah_model {
 
 
     public function hapusDataSekolah($id) {
-        $query = "DELETE data_sekolah, data_evaluasi FROM data_sekolah INNER JOIN data_evaluasi ON data_evaluasi.id_sekolah = data_sekolah.id_sekolah WHERE data_sekolah.id_sekolah = :id_sekolah";
+        $query = "DELETE FROM data_sekolah WHERE id_sekolah = :id_sekolah";
         $this->db->query($query);
 
         $this->db->bind('id_sekolah', $id);
 
         $this->db->execute();
 
-        return $this->db->rowCount();
+        $affectedRow = 0;
+        $affectedRow =+ $this->db->rowCount();
+
+        $query1 = "DELETE FROM data_evaluasi WHERE id_sekolah = :id_sekolah";
+        $this->db->query($query1);
+
+        $this->db->bind('id_sekolah', $id);
+
+        $this->db->execute();
+
+        return $affectedRow;
     }
 
     public function tambahDataSekolah($data) {
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
-        $kriteria = $data['id_sekolahkriteria'];
+        $kriteria = $data['id_kriteria'];
         $alamat = $data['alamat'];
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];
@@ -78,6 +88,7 @@ class Sekolah_model {
         }
 
         $hasil_akhir = json_encode($jumlahkriteria);
+        var_dump($hasil_akhir);
 
         $query1 = "INSERT INTO data_sekolah (id_sekolah, nama, siswa, alamat, penilaian) VALUES (:id_sekolah, :nama, :siswa, :alamat, :penilaian)";
         $this->db->query($query1);
@@ -113,7 +124,7 @@ class Sekolah_model {
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
-        $kriteria = $data['id_sekolahkriteria'];
+        $kriteria = $data['id_kriteria'];
         $alamat = $data['alamat'];
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];

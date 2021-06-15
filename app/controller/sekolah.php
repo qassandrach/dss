@@ -30,6 +30,7 @@ class Sekolah extends Controller{
     public function tambah_aksi(){
         if ($this->model('sekolah_model')->tambahDataSekolah($_POST) > 0){
             header('Location: ' . BASEURL . '/sekolah');
+            echo "success";
         }
     }
 

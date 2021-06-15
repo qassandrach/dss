@@ -121,7 +121,7 @@ class Sekolah_model {
         }
 
         $hasil_akhir = json_encode($jumlahkriteria);
-        $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id_sekolah = :id";
+        $query1 = "UPDATE data_sekolah SET nama = :nama, siswa = :siswa, alamat = :alamat, penilaian = :penilaian WHERE id_sekolah = :id_sekolah";
         $this->db->query($query1);
 
         $this->db->bind('id_sekolah', $id_sekolah);

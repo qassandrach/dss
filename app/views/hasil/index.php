@@ -27,37 +27,41 @@
                         }
                         echo "</tr>";
                     }
-                    var_dump($data['normalized_mtrx']);
                     ?>
                 </tbody>
             </table>
             <table>
+                <h4>Matriks Keputusan Ternormalisasi</h4>
                 <thead>
                     <tr>
-                        <th>Ranking</th>
-                        <th>Nama Sekolah</th>
-                        <th>Nilai Preferensi</th>
-                        <th>Aksi</th>
+                    <th>Sekolah</th>
+                        <?php
+                        $kriteria = $data['kriteria'];
+                        foreach ($kriteria as $key) {
+                            echo "<th>" . $key['kriteria'] . "</th>";
+                        }
+                        ?>
                     </tr>
                 </thead>
-
                 <tbody>
+                    <?php
+                    $sekolah = array();
+                    for ($i=1; $i <= count($data['sekolah']); $i++) { 
+                        $sekolah[$i] = $data['sekolah'][$i-1]['nama'];
+                    }
 
-
-                    <tr>
-                        <td><?= $hasil['id_alternatif']; ?></td>
-                        <td><?= $hasil['id_kriteria']; ?></td>
-                        <td><?= $hasil['nilai']; ?></td>
-                        <td align="center" class="menu">
-                            <a class="btn" id="detail" href="<?= BASEURL; ?>/sekolah/detail/<?= $sekolah['id_sekolah']; ?>">Detail</a>
-                            <a class="btn tampilModalUbah" id="ubah" href="<?= BASEURL; ?>/sekolah/edit/<?= $sekolah['id_sekolah']; ?>">Ubah</a>
-                            <a class="btn" id="hapus" href="<?= BASEURL; ?>/sekolah/hapus/<?= $sekolah['id_sekolah']; ?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
-                        </td>
-                    </tr>
-                    <?php ?>
+                    $matrix = $data['normalized_mtrx'];
+                    foreach ($matrix as $key => $value) {
+                        echo "<tr>";
+                        echo "<td>" . $sekolah[$key] . "</td>";
+                        for ($i = 1; $i <= count($value); $i++) {
+                            echo "<td>" . $value[$i] . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+                    ?>
                 </tbody>
             </table>
-
 
         </div>
 

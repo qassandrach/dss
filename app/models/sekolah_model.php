@@ -21,6 +21,11 @@ class Sekolah_model {
         return $this->db->single();
     }
 
+    public function getSekolah(){
+        $this->db->query('SELECT nama FROM ' . $this->table);
+        return $this->db->resultSet();
+    }
+
     public function countSekolah() {
 
         $this->db->query('SELECT id_sekolah FROM ' . $this->table);

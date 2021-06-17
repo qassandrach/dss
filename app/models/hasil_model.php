@@ -59,4 +59,64 @@ class Hasil_model
 
         return $R;
     }
+
+    public function weightedmatrix($data) {
+        $query = 'SELECT id_kriteria, bobot FROM data_kriteria';
+        $this->db->query($query);
+        $bobot = $this->db->resultSet();
+
+        $kriteria = array();
+
+        foreach ($bobot as $b) {
+            $kriteria[$b['id_kriteria']] = floatval($b['bobot']);
+        }
+
+        $W = array();
+        $alternative = '';
+        foreach ($data as $i => $x) {
+          if ($alternative != $i) {
+            $alternative = $i;
+            $W[$i] = array();
+          }
+          foreach ($x as $j => $value) {
+            $W[$i][$j] = round($value * $kriteria[$j], 4);
+          }
+        }
+        return $W;
+    }
+
+    public function idealSolution($data){
+      $positiveSolution = array();
+      $negativeSolution = array();
+      foreach ($data as $i => $x) {
+        
+        foreach ($x as $j => $value) {
+            
+            $positiveSolution[$j] = (isset($positiveSolution[$j]) ? $positiveSolution[$j] : 0);
+            if ($positiveSolution[$j] < $value) {
+              $positiveSolution[$j] = $value;
+            }
+  
+        }
+            
+    }
+
+    foreach ($data as $i => $x) {
+        
+      foreach ($x as $j => $value) {
+          
+          $negativeSolution[$j] = (isset($negativeSolution[$j]) ? $negativeSolution[$j] : $value);
+          if ($negativeSolution[$j] > $value) {
+            $negativeSolution[$j] = $value;
+          }
+
+      }
+          
+  }
+
+      return array(
+        'A<sup>+</sup>'=>$positiveSolution,
+        'A<sup>-</sup>'=>$negativeSolution
+      );
+    }
 }

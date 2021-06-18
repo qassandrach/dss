@@ -163,7 +163,7 @@
                        <td>" . $value . "</td>
                        </tr>";
                     }
-                    var_dump($data['result']); ?>
+                     ?>
                 </tbody>
             </table>
             <table>

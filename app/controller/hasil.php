@@ -10,6 +10,7 @@ class Hasil extends Controller {
         $data['weighted_mtrx'] = $this->model('hasil_model')->weightedMatrix($data['normalized_mtrx']);
         $data['ideal_solution'] = $this->model('hasil_model')->idealSolution($data['weighted_mtrx']);
         $data['sol_distance'] = $this->model('hasil_model')->solutionDistance($data['ideal_solution'], $data['weighted_mtrx']);
+        $data['result'] = $this->model('hasil_model')->preferenceValue($data['sol_distance']);
         $this->view('templates/header', $data);
         $this->view('hasil/index', $data);
         $this->view('templates/footer');

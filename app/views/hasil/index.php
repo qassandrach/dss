@@ -132,15 +132,13 @@
                 <tbody>
                     <?php
                     $i = 0;
-                    $matrix5 = $data['sol_distance']['positiveDistance'];
+                    $matrix5 = $data['sol_distance'][1];
                     foreach ($matrix5 as $key => $value) {
-                        echo "<tr>";
-                        echo "<td>" . (++$i) . "</td>";
-                        echo "<td>" . $sekolah[$key] . "</td>";
-
-                        echo "<td>" . $value . "</td>";
-
-                        echo "</tr>";
+                        echo "<tr>
+                        <td>" . (++$i) . "</td>
+                        <td>" . $sekolah[$key] . "</td>
+                        <td>" . $value . "</td>
+                        </tr>";
                     }
                     ?>
                 </tbody>
@@ -156,18 +154,39 @@
                 </thead>
                 <tbody>
                     <?php
-                    $j=0;
-                    $matrix6 = $data['sol_distance']['negativeDistance'];
-                    foreach ($matrix5 as $key => $value) {
-                        echo "<tr>";
-                        echo "<td>" . (++$j) . "</td>";
-                        echo "<td>" . $sekolah[$key] . "</td>";
-
-                        echo "<td>" . $value . "</td>";
-
-                        echo "</tr>";
+                    $j = 0;
+                    $matrix6 = $data['sol_distance'][2];
+                    foreach ($matrix6 as $key => $value) {
+                        echo "<tr>
+                       <td>" . (++$j) . "</td>
+                       <td>" . $sekolah[$key] . "</td>
+                       <td>" . $value . "</td>
+                       </tr>";
                     }
-                    ?>
+                    var_dump($data['result']); ?>
+                </tbody>
+            </table>
+            <table>
+                <h4>Nilai Preferensi(V<sub>i</sub>)</h4>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Sekolah</th>
+                        <th>V<sub>i</sub></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $k = 0;
+                    $matrix7 = $data['result'];
+                    foreach ($matrix7 as $key => $value) {
+                        echo "<tr>
+                       <td>" . (++$k) . "</td>
+                       <td>" . $sekolah[$key] . "</td>
+                       <td>" . $value . "</td>
+                       </tr>";
+                    }
+                   ?>
                 </tbody>
             </table>
         </div>

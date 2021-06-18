@@ -35,7 +35,6 @@ class Hasil_model
     $x_rata = array();
     foreach ($result as $i => $x) {
       foreach ($x as $j => $value) {
-        // $x_rata[$j] = (isset($x_rata[$j]) ? $x_rata[$j] : 0) + pow($value, 2);
         $x_rata[$j] = (isset($x_rata[$j]) ? $x_rata[$j] : 0) + pow($value, 2);
       }
     }
@@ -159,8 +158,22 @@ class Hasil_model
     }
 
     return array(
-      'positiveDistance' => $positiveDistance,
-      'negativeDistance' => $negativeDistance
+      1 => $positiveDistance,
+      2 => $negativeDistance
     );
+  }
+
+
+  public function preferenceValue($distance)
+  {
+    $result = array();
+    $positive = $distance[1];
+    $negative = $distance[2];
+
+    for ($i=1; $i <= count($positive); $i++) { 
+      $result[$i] = (isset($result[$i]) ? $result[$i] : 0) + round(($negative[$i]/($negative[$i]+$positive[$i])),4);
+    }
+    return $result;
+    
   }
 }

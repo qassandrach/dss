@@ -172,17 +172,43 @@
                     <tr>
                         <th>No</th>
                         <th>Sekolah</th>
-                        <th>V<sub>i</sub></th>
+                        <th>Nilai Preferensi (V<sub>i</sub>)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $k = 0;
                     $matrix7 = $data['result'];
+                    $matrix8 = array();
                     foreach ($matrix7 as $key => $value) {
                         echo "<tr>
                        <td>" . (++$k) . "</td>
                        <td>" . $sekolah[$key] . "</td>
+                       <td>" . $value . "</td>
+                       </tr>";
+                       $matrix8[$sekolah[$key]] = $value;
+                    }
+                    
+                   ?>
+                </tbody>
+            </table>
+            <table>
+                <h4>Ranking</h4>
+                <thead>
+                    <tr>
+                        <th>Ranking</th>
+                        <th>Sekolah</th>
+                        <th>Nilai Preferensi (V<sub>i</sub>)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $k = 0;
+                    arsort($matrix8);
+                    foreach ($matrix8 as $key => $value) {
+                        echo "<tr>
+                       <td>" . (++$k) . "</td>
+                       <td>" . $key . "</td>
                        <td>" . $value . "</td>
                        </tr>";
                     }

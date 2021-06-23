@@ -4,7 +4,7 @@ class Home extends Controller {
     public function index()
     {
         $data['judul'] = 'Home';
-        $data['nama'] = $this->model('user_model')->getUser();
+        // $data['nama'] = $this->model('user_model')->getUser();
         $data['sekolah'] = $this->model('sekolah_model')->getAllSekolah();
         $data['kriteria'] = $this->model('kriteria_model')->getAllKriteria();
         

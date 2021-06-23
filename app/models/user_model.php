@@ -1,10 +1,16 @@
 <?php
 
 class User_model {
-    private $nama = 'Qassie';
+    private $table = 'data_users';
+    private $db;
 
+    public function __construct(){
+        $this->db = new Database;
+    }
 
-    public function getUser() {
-        return $this->nama;
+    public function getAllUsers() {
+        $query = 'SELECT id, nama, username, role FROM ' . $this->table;
+        $this->db->query($query);
+        return $this->db->resultSet();
     }
 }

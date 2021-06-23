@@ -11,9 +11,11 @@
         <nav>
             <ul>
                 <li><a href="<?= BASEURL; ?>">Dashboard</a></li>
+                <li><a href="<?= BASEURL; ?>/profile">Profile</a></li>
                 <li><a href="<?= BASEURL; ?>/sekolah">Data Sekolah</a></li>
                 <li><a href="<?= BASEURL; ?>/kriteria">Data Kriteria</a></li>
                 <li><a href="<?= BASEURL; ?>/hasil">Prioritas Sekolah</a></li>
             </ul>
         </nav>
     </header>
+    <main>

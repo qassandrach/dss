@@ -1,4 +1,4 @@
-<main>
+
     <?php $sekolah = $data['sekolah'];
 
     ?>
@@ -67,5 +67,3 @@
 
     </div>
 
-
-</main>

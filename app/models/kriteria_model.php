@@ -82,7 +82,7 @@ class Kriteria_model {
 
     public function editDataKriteria($data){
         $jumlah_penilaian = array();
-
+        $affectedRow = 0;
         for ($i = 0; $i < count($data['nama_penilaian']); $i++) { 
             $array = array(
                 'jenis' => $data['nama_penilaian'][$i],
@@ -103,8 +103,9 @@ class Kriteria_model {
         $this->db->bind('penilaian', $hasil);
 
         $this->db->execute();
-
-        return $this->db->rowCount();
+        $affectedRow += $this->db->rowCount();
+        var_dump($affectedRow);
+        return $affectedRow;
     }
 }
 ?>

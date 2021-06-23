@@ -27,8 +27,9 @@ main {
     min-height: 80%;
     /* margin-left: 10%; */
     /* margin-right: 10%; */
-    max-width: 800px;
+    max-width: 80%;
     margin: auto;
+    margin-bottom: 20px;
 
 }
 #dashboard {
@@ -98,6 +99,7 @@ nav a:hover, .active {
     box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
     -webkit-box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
     margin-top: 24px;
+
 
    
 }

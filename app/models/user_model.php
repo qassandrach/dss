@@ -9,8 +9,47 @@ class User_model {
     }
 
     public function getAllUsers() {
-        $query = 'SELECT id, nama, username, role FROM ' . $this->table;
+        $query = 'SELECT id_user, nama, username, role FROM ' . $this->table;
         $this->db->query($query);
         return $this->db->resultSet();
+    }
+
+    public function countUsers(){
+        $this->db->query('SELECT id_user FROM ' . $this->table);
+
+        $this->db->resultSet();
+        $jumlah = $this->db->rowCount();
+
+        if ($jumlah != 0) {
+            $kode    = $jumlah + 1;
+            $kodeotomatis = str_pad($kode, 1, "0", STR_PAD_LEFT);
+        } else {
+            $kodeotomatis = "1";
+        }
+
+        return $kodeotomatis;
+    }
+
+    public function tambahDataUser($data)
+    {
+        $id_user = $data['id_user'];
+        $nama = $data['nama_user'];
+        $email = $data['email'];
+        $username  = $data['username'];
+        $password = password_hash($data['password'], PASSWORD_DEFAULT);
+        $role = $data['role'];
+
+        $query = 'INSERT INTO data_users (id_user, nama, email, username, password, role) VALUES (:id_user, :nama, :email, :username, :password, :role)';
+        $this->db->query($query);
+
+        $this->db->bind('id_user', $id_user);
+        $this->db->bind('nama', $nama);
+        $this->db->bind('email', $email);
+        $this->db->bind('username', $username);
+        $this->db->bind('password', $password);
+        $this->db->bind('role', $role);
+        $this->db->execute();
+        return $this->db->rowCount();
+        exit();
     }
 }

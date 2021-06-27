@@ -29,7 +29,7 @@
                         <a class="btn" id="ubah" href="<?= BASEURL; ?>/profile/edit/<?= $data['user']['id']; ?>">Ubah</a>
                         <a class="btn" id="hapus" href="<?= BASEURL; ?>/profile/hapus/<?= $data['user']['id']; ?>" onclick="return confirm('Anda yakin ingin menghapus ini?')" />Hapus</a>
                     </td>
-                <?
+                <?php
 
                 }
                 ?>

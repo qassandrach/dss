@@ -1,10 +1,17 @@
 <?php
+session_start();
+class Hasil extends Controller
+{
+    public function __construct()
+    {
+        if (!$_SESSION['username']) {
+            header("Location: " . BASEURL . "/login/logout");
+        }
+    }
 
-class Hasil extends Controller {
-    
+    public function count()
+    {
 
-    public function count(){
-        
         $data['kriteria'] = $this->model('kriteria_model')->getIdKriteria();
         $data['sekolah'] = $this->model('sekolah_model')->getSekolah();
         $data['sekolah_prioritas'] = $this->model('hasil_model')->decisionMatrix();
@@ -13,30 +20,25 @@ class Hasil extends Controller {
         $data['ideal_solution'] = $this->model('hasil_model')->idealSolution($data['weighted_mtrx']);
         $data['sol_distance'] = $this->model('hasil_model')->solutionDistance($data['ideal_solution'], $data['weighted_mtrx']);
         $data['result'] = $this->model('hasil_model')->preferenceValue($data['sol_distance']);
- 
+
         return $data;
     }
-    public function index(){
-        $this->hasil = new Hasil;
+    public function index()
+    {
         $data['judul'] = 'Hasil SPK';
         $data['sekolah'] = $this->model('sekolah_model')->getSekolah();
-       $result = $this->hasil->count();
-       $data['result'] = $result['result'];
+        $result = $this->count();
+        $data['result'] = $result['result'];
         $this->view('templates/header', $data);
         $this->view('hasil/index', $data);
         $this->view('templates/footer');
     }
-    public function proses(){
-        
-        $this->hasil = new Hasil;
+    public function proses()
+    {
         $title['judul'] = 'Proses SPK';
-       $data = $this->hasil->count();
+        $data = $this->count();
         $this->view('templates/header', $title);
         $this->view('hasil/proses', $data);
         $this->view('templates/footer');
-        
     }
-
 }
-
-?>

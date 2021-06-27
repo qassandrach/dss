@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,8 +7,9 @@
     <title>Halaman <?= $data['judul']; ?></title>
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/styles.css">
 </head>
+
 <body>
-<header>
+    <header>
         <nav>
             <ul>
                 <li><a href="<?= BASEURL; ?>/home">Dashboard</a></li>
@@ -15,6 +17,7 @@
                 <li><a href="<?= BASEURL; ?>/sekolah">Data Sekolah</a></li>
                 <li><a href="<?= BASEURL; ?>/kriteria">Data Kriteria</a></li>
                 <li><a href="<?= BASEURL; ?>/hasil">Prioritas Sekolah</a></li>
+                <li><a href="<?= BASEURL; ?>/login/logout">Logout</a></li>
             </ul>
         </nav>
     </header>

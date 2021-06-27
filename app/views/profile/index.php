@@ -11,16 +11,19 @@
                 <th>Username</th>
                 <th>Role</th>
                 <th>Aksi</th>
+            </tr>
 
         </thead>
         <tbody>
-            <tr>
+            
                 <?php
-
-                foreach ($data['user'] as $i => $x) {
-                    foreach ($x as $key => $value) {
+                foreach ($data['user'] as $x => $y) {
+                    ?><tr>
+                    <?php
+                    foreach ($y as $key => $value) {
                         echo "<td>" . $value . "</td>";
                     }
+                   
                 ?>
                     <td align="center" class="menu">
                         <a class="btn" id="ubah" href="<?= BASEURL; ?>/profile/edit/<?= $data['user']['id']; ?>">Ubah</a>

@@ -15,7 +15,8 @@
             </thead>
 
             <tbody>
-                <?php foreach ($data['sekolah'] as $sekolah) { ?>
+                <?php foreach ($data['sekolah'] as $sekolah) {
+                ?>
 
                     <tr>
                         <td><?= $sekolah['id_sekolah']; ?></td>

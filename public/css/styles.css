@@ -103,6 +103,17 @@ nav a:hover, .active {
 
    
 }
+.login {
+    max-width: 35%;
+    border-radius: 5px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
+    -webkit-box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
+    margin: auto;
+    margin-top: 10%;
+   justify-content: center;
+}
 
 .card .section {
     margin-top: 20px;
@@ -275,6 +286,12 @@ form {
 .form-group {
     margin-bottom: 2rem;
     width: 100%;
+    display: flex;
+}
+
+.form-login {
+    margin-bottom: 2rem;
+    width: 50%;
     display: flex;
 }
 

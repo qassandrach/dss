@@ -52,4 +52,36 @@ class User_model {
         return $this->db->rowCount();
         exit();
     }
+
+    public function cekUser($data)
+    {
+        $username = $data['username'];
+        $pass = $data['password'];
+
+        $query = 'SELECT * FROM data_users WHERE username=:username';
+        $this->db->query($query);
+        $this->db->bind('username', $username);
+        $this->db->execute();
+
+        $result = $this->db->resultSet();
+
+        if (count($result) > 0) {
+            foreach ($result as $key => $value) {
+                if (password_verify($pass, $value['password'])) {
+                    return array(
+                        'username' => $value['username'],
+                        'role' => $value['role']
+                    );
+                } else {
+                    return $valid_password = false;
+                }
+            }
+            
+        } else {
+            return $valid_username = false;
+        }
+        
+
+        // return $this->db->resultSet();
+    }
 }

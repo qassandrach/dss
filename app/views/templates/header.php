@@ -10,7 +10,7 @@
 <header>
         <nav>
             <ul>
-                <li><a href="<?= BASEURL; ?>">Dashboard</a></li>
+                <li><a href="<?= BASEURL; ?>/home">Dashboard</a></li>
                 <li><a href="<?= BASEURL; ?>/profile">Profile</a></li>
                 <li><a href="<?= BASEURL; ?>/sekolah">Data Sekolah</a></li>
                 <li><a href="<?= BASEURL; ?>/kriteria">Data Kriteria</a></li>

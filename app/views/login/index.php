@@ -1,6 +1,7 @@
 
+    <h2 id="loginTitle">DECISION SUPPORT SYSTEMS UNIVERSITAS TRILOGI</h2>
     <div class="login">
-        <h3>Login</h3>
+        <h3>Sign In</h3>
         <form action="<?= BASEURL; ?>/login/login_aksi" method="post">
 
     

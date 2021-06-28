@@ -35,4 +35,27 @@ class Profile extends Controller
             header('Location: ' . BASEURL . '/profile');
         }
     }
+    public function edit($id)
+    {
+        $data['judul'] = 'Edit User';
+        $data['user'] = $this->model('user_model')->getUserById($id);
+        $this->view('templates/header', $data);
+        $this->view('profile/edit', $data);
+        $this->view('templates/footer');
+    }
+
+    public function edit_aksi()
+    {
+
+        if ($this->model('user_model')->editDataUser($_POST) > 0) {
+            header('Location: ' . BASEURL . '/profile');
+        }
+    }
+
+    public function hapus()
+    {
+        if ($this->model('user_model')->hapusDataUser($_POST) > 0) {
+            header('Location: ' . BASEURL . '/profile');
+        }
+    }
 }

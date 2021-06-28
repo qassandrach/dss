@@ -20,7 +20,7 @@ class Login extends Controller
     public function login_aksi()
     {
         $user = $this->model('user_model')->cekUser($_POST);
-        if (count($user) > 0) {
+        if ($user > 0) {
             $_SESSION["username"] = $user['username'];
             $_SESSION["role"]    = $user['role'];
 
@@ -31,12 +31,22 @@ class Login extends Controller
                 header("Location: " . BASEURL . "/home");
                 exit;
             }
+        } else {
+            $this->authFailed();
         }
     }
 
     public function logout()
     {
         session_destroy();
+        header("Location: " . BASEURL);
+    }
+
+    public function authFailed()
+    {
+        
+        session_destroy();
+       
         header("Location: " . BASEURL);
     }
 }

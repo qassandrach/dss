@@ -13,6 +13,12 @@ class User_model {
         $this->db->query($query);
         return $this->db->resultSet();
     }
+    public function getUserById($id) {
+        $query = 'SELECT id_user, nama, email, role FROM ' . $this->table . ' WHERE id_user=:id_user';
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        return $this->db->single();
+    }
 
     public function countUsers(){
         $this->db->query('SELECT id_user FROM ' . $this->table);
@@ -83,5 +89,43 @@ class User_model {
         
 
         // return $this->db->resultSet();
+    }
+
+    public function editDataUser($data)
+    {
+        $id_user = $data['id_user'];
+        $nama = $data['nama'];
+        $email = $data['email'];
+        $role = $data['role'];
+        $query = 'UPDATE data_users SET nama=:nama, email=:email, role=:role WHERE id_user=:id_user';
+        $this->db->query($query);
+        $this->db->bind('nama', $nama);
+        $this->db->bind('email', $email);
+        $this->db->bind('role', $role);
+        $this->db->bind('id_user', $id_user);
+
+        $this->db->execute();
+        // $this->db->resultSet();
+
+        $affectedRow = 0;
+        $affectedRow += $this->db->rowCount();
+
+        return $affectedRow;
+    }
+
+    public function hapusDataUser($id)
+    {
+        $query = "DELETE FROM data_users WHERE id_user = :id_user";
+        $this->db->query($query);
+
+        $this->db->bind('id_user', $id);
+
+        $this->db->execute();
+
+        $affectedRow = 0;
+        $affectedRow =+ $this->db->rowCount();
+
+        return $affectedRow;
+
     }
 }

@@ -111,8 +111,12 @@ nav a:hover, .active {
     box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
     -webkit-box-shadow: 0 2px 4px 0 rgb(185 185 185 / 50%);
     margin: auto;
-    margin-top: 10%;
+    margin-top: 50px;
    justify-content: center;
+}
+
+#loginTitle {
+    margin-top: 5%;
 }
 
 .card .section {

@@ -1,8 +1,11 @@
 <div class="card">
     <h1 id="sekolah">Data Sekolah</h1>
-    <div class="section">
-        <button><a href="<?= BASEURL; ?>/sekolah/tambah/">Tambah</a></button>
-    </div>
+    <?php if ($_SESSION && $_SESSION['role'] === 'Administrator') { ?>
+        <div class="section">
+            <button><a href="<?= BASEURL; ?>/sekolah/tambah/">Tambah</a></button>
+        </div>
+    <?php } ?>
+
     <div class="section">
         <table>
             <thead>

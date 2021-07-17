@@ -50,7 +50,7 @@ class Hasil_model
         $R[$i] = array();
       }
       foreach ($x as $j => $value) {
-        $R[$i][$j] = round($value / $x_rata[$j], 4);
+        $R[$i][$j] = round(($value / $x_rata[$j]), 4);
       }
     }
 
@@ -77,7 +77,7 @@ class Hasil_model
         $W[$i] = array();
       }
       foreach ($x as $j => $value) {
-        $W[$i][$j] = round($value * $kriteria[$j], 4);
+        $W[$i][$j] = round(($value * $kriteria[$j]), 4);
       }
     }
     return $W;

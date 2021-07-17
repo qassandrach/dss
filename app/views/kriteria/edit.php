@@ -1,7 +1,5 @@
-<main>
-    <? $kriteria = $data['kriteria'];
+ <? $kriteria = $data['kriteria'];
     $penilaian = json_decode($kriteria['penilaian'], true);
-
 
     ?>
     <div class="card">
@@ -65,7 +63,6 @@
         </form>
 
     </div>
-</main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {

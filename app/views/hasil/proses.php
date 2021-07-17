@@ -179,15 +179,15 @@
                     <?php
                     $k = 0;
                     $matrix7 = $data['result'];
-                    $matrix8 = array();
                     foreach ($matrix7 as $key => $value) {
                         echo "<tr>
                        <td>" . (++$k) . "</td>
                        <td>" . $sekolah[$key] . "</td>
                        <td>" . $value . "</td>
                        </tr>";
-                       $matrix8[$sekolah[$key]] = $value;
+
                     }
+                
                     
                    ?>
                 </tbody>
@@ -204,11 +204,11 @@
                 <tbody>
                     <?php
                     $k = 0;
-                    arsort($matrix8);
-                    foreach ($matrix8 as $key => $value) {
+                    arsort($matrix7);
+                    foreach ($matrix7 as $key => $value) {
                         echo "<tr>
                        <td>" . (++$k) . "</td>
-                       <td>" . $key . "</td>
+                       <td>" . $sekolah[$key] . "</td>
                        <td>" . $value . "</td>
                        </tr>";
                     }

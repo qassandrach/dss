@@ -124,7 +124,7 @@ class Sekolah_model {
         $id_sekolah = $data['id_sekolah'];
         $sekolah = $data['nama_sekolah'];
         $jumlah_siswa = $data['jumlah_siswa'];
-        $kriteria = $data['id_kriteria'];
+        $kriteria = $data['idkriteria'];
         $alamat = $data['alamat'];
         $jenis_penilaian = $data['nama_penilaian'];
         $jenis = $data['penilaian'];

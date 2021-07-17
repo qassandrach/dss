@@ -12,7 +12,7 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Sekolah</th>
-                    <th>Alamat</th>
+                    <th class="alamat">Alamat</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

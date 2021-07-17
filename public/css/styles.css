@@ -226,6 +226,10 @@ th, td {
     text-align: left;
     padding: 15px;
     border: 1px solid #f1f6f8;
+
+}
+.alamat {
+    width: 40%;
 }
 
 .btn {

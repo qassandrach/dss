@@ -75,7 +75,7 @@ class Sekolah extends Controller
     {
         if ($this->model('sekolah_model')->editDataSekolah($_POST) > 0) {
             header('Location: ' . BASEURL . '/sekolah');
-            echo "success";
+
         }
     }
 }

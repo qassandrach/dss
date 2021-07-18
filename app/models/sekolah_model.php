@@ -88,7 +88,6 @@ class Sekolah_model {
         }
 
         $hasil_akhir = json_encode($jumlahkriteria);
-        var_dump($hasil_akhir);
 
         $query1 = "INSERT INTO data_sekolah (id_sekolah, nama, siswa, alamat, penilaian) VALUES (:id_sekolah, :nama, :siswa, :alamat, :penilaian)";
         $this->db->query($query1);
@@ -115,6 +114,46 @@ class Sekolah_model {
 
         }
 
+
+        return $this->db->rowCount();
+        exit();
+    }
+
+    public function tambahPenilaianSekolah($data)
+    {
+        $id_sekolah = $data['id_sekolah'];
+        $kriteria = $data['id_kriteria'];
+        $jenis_penilaian = $data['nama_penilaian'];
+        $jenis = $data['penilaian'];
+        $nilai = $data['inphasil'];
+       
+        $jumlahkriteria = array();
+
+        for ($i=0; $i < count($kriteria); $i++) { 
+            $penilaian_array = array (
+                'penilaian'.$i => $jenis_penilaian[$i],
+                'jenis'.$i => $jenis[$i],
+                'nilai'.$i => $nilai[$i]
+            );
+
+            array_push($jumlahkriteria, $penilaian_array);
+        }
+
+        for ($i=0; $i < count($kriteria); $i++) {
+
+            $query2    = "INSERT INTO data_evaluasi (id_sekolah, id_kriteria, nilai) VALUES (:id_sekolah, :id_kriteria, :nilai)";
+            $this->db->query($query2);
+
+            $this->db->bind('id_sekolah', $id_sekolah);
+            $this->db->bind('id_kriteria', $kriteria[$i]);
+
+            $this->db->bind('nilai', $nilai[$i]);
+
+            $this->db->execute();
+
+        }
+
+        $hasil_akhir = json_encode($jumlahkriteria);
 
         return $this->db->rowCount();
         exit();

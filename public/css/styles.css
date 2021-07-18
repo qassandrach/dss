@@ -344,6 +344,13 @@ input[type=text], input[type=number], input[type=password], select, option, text
     resize: vertical;
 }
 
+select > option {
+    margin: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
 .form-detail {
     padding: 12px;
     display: inline-block;

@@ -170,9 +170,12 @@ class Hasil_model
     $positive = $distance[1];
     $negative = $distance[2];
 
-    for ($i=1; $i <= count($positive); $i++) { 
-      $result[$i] = (isset($result[$i]) ? $result[$i] : 0) + round(($negative[$i]/($negative[$i]+$positive[$i])),4);
+    foreach ($positive as $key => $value) {
+      $result[$key] = (isset($result[$key]) ? $result[$key] : 0) + round(($negative[$key]/($negative[$key]+$positive[$key])),4);
     }
+    // for ($i=1; $i <= count($positive); $i++) { 
+    //   $result[$i] = (isset($result[$i]) ? $result[$i] : 0) + round(($negative[$i]/($negative[$i]+$positive[$i])),4);
+    // }
     return $result;
     
   }

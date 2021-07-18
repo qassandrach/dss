@@ -172,4 +172,20 @@ class Sekolah_model {
         
         exit();
     }
+
+    public function getAllSchool()
+    {
+        $query = 'SELECT id_sekolah, nama_sekolah FROM data_core';
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
+
+    public function getSekolahByName($data)
+    {
+       $nama_sekolah = $data['schools'];
+       $query = 'SELECT * FROM data_core WHERE nama_sekolah=:nama_sekolah';
+       $this->db->query($query);
+       $this->db->bind('nama_sekolah', $nama_sekolah);
+       return $this->db->single();
+    }
 }

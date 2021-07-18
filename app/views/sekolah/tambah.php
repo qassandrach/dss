@@ -1,7 +1,7 @@
 <main>
     <div class="card">
         <h3>Tambah Sekolah</h3>
-        <form action="<?= BASEURL; ?>/sekolah/tambah_aksi" method="post">
+        <form action="<?= BASEURL; ?>/hasil/tambah" method="post">
 
             <div class="form-group">
                 <label for="id_sekolah">ID Sekolah</label>

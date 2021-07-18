@@ -9,6 +9,18 @@ class Hasil extends Controller
         }
     }
 
+    public function tambah()
+    {
+        $data['judul'] = 'Tambah Daftar Sekolah';
+        $data['schools'] = $this->model('sekolah_model')->getSekolahByName($_POST);
+        $data['kriteria'] = $this->model('kriteria_model')->getAllKriteria();
+        $this->view('templates/header', $data);
+        $this->view('hasil/tambah', $data);
+        $this->view('templates/footer');
+    }
+
+    
+
     public function count()
     {
 
@@ -26,7 +38,7 @@ class Hasil extends Controller
     public function index()
     {
         $data['judul'] = 'Hasil SPK';
-        $data['sekolah'] = $this->model('sekolah_model')->getSekolah();
+        $data['sekolah'] = $this->model('sekolah_model')->getAllSchool();
         $result = $this->count();
         $data['result'] = $result['result'];
         $this->view('templates/header', $data);
